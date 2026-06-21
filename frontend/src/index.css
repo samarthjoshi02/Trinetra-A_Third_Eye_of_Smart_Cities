@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #02020b;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(8, 12, 44, 0.6) 0%, transparent 80%),
+      linear-gradient(rgba(18, 24, 60, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18, 24, 60, 0.07) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    background-attachment: fixed;
+    color: #f3f4f6;
+  }
+
+  /* Custom high-tech scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #02020b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 242, 254, 0.2);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 242, 254, 0.5);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  }
+}
+
+@layer components {
+  /* Futuristic Mission Control Glassmorphism */
+  .glass-card {
+    background: rgba(6, 6, 22, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 242, 254, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(8, 8, 30, 0.7);
+    border-color: rgba(0, 242, 254, 0.35);
+    box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .glass-input {
+    background: rgba(3, 3, 15, 0.8);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    color: #f3f4f6;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .glass-input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+    outline: none;
+  }
+
+  /* Neon Glowing Buttons */
+  .btn-cyan {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    color: #02020b;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-cyan:hover {
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+    transform: scale(1.02);
+  }
+
+  .btn-red {
+    background: linear-gradient(135deg, #ff2a5f 0%, #ff527b 100%);
+    box-shadow: 0 0 15px rgba(255, 42, 95, 0.3);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-red:hover {
+    box-shadow: 0 0 25px rgba(255, 42, 95, 0.6);
+    transform: scale(1.02);
+  }
+
+  /* Scanline CRT Effect */
+  .crt-scanlines::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 10;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+  }
+
+  /* AI Bounding Box Scanning Indicator */
+  .scanner-bar {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+    box-shadow: 0 0 15px #00f2fe;
+    animation: scanning 2s linear infinite;
+    position: absolute;
+  }
+
+  /* SOS Pulsing Ring Animation */
+  .sos-pulse {
+    position: relative;
+  }
+  .sos-pulse::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid #ff2a5f;
+    border-radius: 50%;
+    animation: sosRadar 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+    pointer-events: none;
+  }
+}
+
+/* Keyframes */
+@keyframes scanning {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+
+@keyframes sosRadar {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Custom dark styling to integrate Leaflet */
+.leaflet-container {
+  background-color: #040413 !important;
+  font-family: 'Inter', sans-serif;
+  border-radius: 0.5rem;
+}
+.leaflet-bar {
+  border: 1px solid rgba(0, 242, 254, 0.2) !important;
+  background-color: rgba(6, 6, 22, 0.8) !important;
+}
+.leaflet-bar a {
+  background-color: rgba(6, 6, 22, 0.8) !important;
+  color: #00f2fe !important;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.2) !important;
+  transition: all 0.2s ease;
+}
+.leaflet-bar a:hover {
+  background-color: rgba(0, 242, 254, 0.2) !important;
+  color: #fff !important;
+}
+.leaflet-popup-content-wrapper {
+  background: rgba(6, 6, 22, 0.95) !important;
+  color: #f3f4f6 !important;
+  border: 1px solid rgba(0, 242, 254, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3) !important;
+  backdrop-filter: blur(5px);
+}
+.leaflet-popup-tip {
+  background: rgba(6, 6, 22, 0.95) !important;
+  border-left: 1px solid rgba(0, 242, 254, 0.3) !important;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.3) !important;
+}
+
+/* Particle and star background layers */
+.cyber-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 75px 140px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 150px 80px, #00f2fe, transparent),
+    radial-gradient(1px 1px at 220px 260px, rgba(255,255,255,0.4), transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: bgMove 120s linear infinite;
+}
+
+@keyframes bgMove {
+  from { background-position: 0 0; }
+  to { background-position: 300px 600px; }
+}
